@@ -6,3 +6,7 @@ vim.g.autoformat = false
 local opt = vim.opt
 opt.relativenumber = false -- Relative line numbers
 opt.clipboard = "unnamedplus"
+vim.schedule(function() -- and schedule...
+  vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
+end)
+vim.g.lazyvim_python_lsp="basedpyright"
