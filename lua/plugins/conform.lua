@@ -5,6 +5,7 @@ return {
       json5 = { "prettier" },
       -- or force json files to use json5 parser
       json = { "prettier" },
+      typst = { "prettypst" },
     },
     formatters = {
       prettier = { extra_args = { "--parser", "json5" } },
