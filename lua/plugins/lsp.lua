@@ -1,19 +1,18 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        basedpyright = {
-          settings = {
-            basedpyright = {
-              analysis = {
-                typeCheckingMode = "off",
-              },
+    event = "VeryLazy",
+    opts = function(_, opts)
+      opts.servers.basedpyright = {
+        settings = {
+          basedpyright = {
+            analysis = {
+              typeCheckingMode = "off",
             },
           },
         },
-      },
-    },
+      }
+    end,
   },
   {
     "folke/noice.nvim",
