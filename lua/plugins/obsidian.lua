@@ -1,3 +1,8 @@
+local vault_path = "/home/james/Documents/BONOTA-obsidian/"
+if vim.uv.fs_stat(vault_path) == nil then
+  return {}
+end
+
 return {
   {
     "obsidian-nvim/obsidian.nvim",
@@ -8,8 +13,8 @@ return {
       -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
       -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
       -- refer to `:h file-pattern` for more examples
-      "BufReadPre /home/james/Documents/BONOTA-obsidian",
-      "BufNewFile /home/james/Documents/BONOTA-obsidian",
+      "BufReadPre " .. vault_path,
+      "BufNewFile " .. vault_path,
     },
     ---@module 'obsidian'
     ---@type obsidian.config
@@ -20,7 +25,7 @@ return {
       workspaces = {
         {
           name = "BONOTA",
-          path = "/home/james/Documents/BONOTA-obsidian",
+          path = vault_path,
         },
       },
       attachments = {
